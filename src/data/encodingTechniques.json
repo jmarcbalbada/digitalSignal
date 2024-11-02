@@ -1,0 +1,44 @@
+[
+  {
+      "title": "NRZ-L (Non-Return-to-Zero Level)",
+      "youtubeUrl": "https://youtu.be/C9ExP2cafXg?si=dDXOcsh7h23qIPWx",
+      "description": "NRZ-L is a binary encoding technique where a '1' is represented by a high signal and a '0' is represented by a low signal. The signal does not return to a neutral (zero) state between bits, hence the name.",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/55/NRZcode.png",
+      "acronym": "NRZ-L"
+  },
+  {
+      "title": "NRZ-I (Non-Return-to-Zero Inverted)",
+      "youtubeUrl": "https://youtu.be/Kxndom8GaUQ?si=IVzpX1TkaSw8LCPV",
+      "description": "In NRZ-I, a transition occurs at the beginning of a bit interval to represent a '1', while a '0' is represented by no transition. This technique helps reduce the DC component of the signal.",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e4/NRZI_example.png",
+      "acronym": "NRZ-I"
+  },
+  {
+      "title": "Bipolar AMI (Alternate Mark Inversion)",
+      "youtubeUrl": "https://youtu.be/O9gWkLz8eZI?si=n-PiOvIUaNDV-Y3K",
+      "description": "Bipolar AMI uses three levels: positive, negative, and zero. A '1' is represented by alternating between positive and negative voltages, while a '0' is represented by zero voltage.",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Ami_encoding.svg/1920px-Ami_encoding.svg.png",
+      "acronym": "Bipolar AMI"
+  },
+  {
+      "title": "Pseudoternary",
+      "youtubeUrl": "https://youtu.be/QyW-lzISN-Q?si=qF_2HB6EXXr4V_k6",
+      "description": "Pseudoternary is a line coding scheme where a '0' is represented by a positive or negative pulse, and a '1' is represented by no pulse. It is similar to bipolar coding.",
+      "imageUrl": "https://media.cheggcdn.com/media/3a2/3a2cce1b-8652-423e-b3e8-e85bac2a02a5/phps29RPF",
+      "acronym": "Pseudoternary"
+  },
+  {
+      "title": "Manchester Encoding",
+      "youtubeUrl": "https://youtu.be/XKtxxZ327UM?si=wEUfTzE0e8hWVYPD",
+      "description": "Manchester encoding combines clock and data signals. A '0' is represented by a high-to-low transition, while a '1' is represented by a low-to-high transition. This provides a self-clocking feature.",
+      "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEilPxZy1U3XpkJ4h6tG5Phk_WWJ-kFuPgp_00YRvaGdzfAF1ry_y-RkTVMk0-bPHxx-A24lHf7eJfWYIIJgg9mMSPuRdchz-zGH6f1LMGMuUBXvVpnoAybOTBF5jYpdWJdq3zb_TFfRrpM-/s1425/DME-Manchester.PNG",
+      "acronym": "Manchester"
+  },
+  {
+      "title": "Differential Manchester",
+      "youtubeUrl": "https://youtu.be/du_boiwX1yU?si=36IgokEmzj8Li_Fa",
+      "description": "Differential Manchester encoding is similar to Manchester encoding, but it uses transitions to indicate the start of a bit. A '1' is indicated by a transition at the beginning of the bit period, while a '0' is indicated by no transition.",
+      "imageUrl": "https://scaler.com/topics/images/differential-manchester-encoding.webp",
+      "acronym": "Differential Manchester"
+  }
+]

@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "strict": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["*"]
+    },
+    "jsx": "react-jsx",
+    "typeRoots": ["./node_modules/@types", "./src/theme"] // Ensure your theme types are included
+  },
+  "include": [
+    "src/**/*.ts", "src/**/*.tsx", "src/theme/mui.theme.d.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
