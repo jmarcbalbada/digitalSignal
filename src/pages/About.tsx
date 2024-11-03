@@ -25,7 +25,12 @@ const About: React.FC = () => {
           padding: 2,
           justifyContent: "center", // Center the grid items horizontally
           minHeight: "100vh", // Ensure the Box takes the full viewport height for vertical centering
-          marginRight: "3.0rem",
+          marginRight: {
+            sm: "1.5rem",
+            md: "1.5rem",
+            lg: "3.0rem",
+            xl: "3.0rem",
+          },
         }}
       >
         {encodingData.map((encoding) => (

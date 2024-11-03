@@ -57,7 +57,13 @@ const EncodingCard: React.FC<{
           margin: 0,
           marginTop: "9.0rem",
           opacity: 1, // Show acronym normally
-          transition: "opacity 0.3s ease", // Add transition for opacity
+          transition: "opacity 0.3s ease",
+          fontSize: {
+            xs: "2.0rem",
+            md: "2.0rem",
+            lg: "3.0rem",
+            xl: "3.0rem",
+          },
         }}
       >
         {acronym}

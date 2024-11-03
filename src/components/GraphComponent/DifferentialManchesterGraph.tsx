@@ -25,7 +25,7 @@ const DifferentialManchesterGraph: React.FC<
       data={data}
     >
       <CartesianGrid strokeDasharray="3 3" />
-      <YAxis domain={[0, 1]} ticks={[0, 1]} />
+      <YAxis domain={[0, 1]} ticks={[0]} />
       <Tooltip />
       <Legend />
       <Line

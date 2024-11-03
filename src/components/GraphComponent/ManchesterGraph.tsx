@@ -23,7 +23,7 @@ const ManchesterGraph: React.FC<ManchesterGraphProps> = ({ inputData }) => {
       data={data}
     >
       <CartesianGrid strokeDasharray="3 3" />
-      <YAxis domain={[0, 1]} ticks={[0, 1]} />
+      <YAxis domain={[0, 1]} ticks={[0]} />
       <Tooltip />
       <Legend />
       <Line type="monotone" dataKey="Manchester" stroke="#ffc658" />
