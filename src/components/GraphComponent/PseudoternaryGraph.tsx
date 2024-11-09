@@ -24,11 +24,23 @@ const PseudoternaryGraph: React.FC<PseudoternaryGraphProps> = ({
       height={300}
       data={data}
     >
-      <CartesianGrid strokeDasharray="3 3" />
+      <CartesianGrid strokeDasharray="1 3" />
+      <XAxis
+        dataKey="index"
+        tickCount={data.length}
+        interval={0}
+        tickFormatter={(tick) => inputData[tick]} // Display the bit value at each tick
+      />
       <YAxis domain={[-1, 1]} ticks={[-1, 0, 1]} />
       <Tooltip />
       <Legend />
-      <Line type="monotone" dataKey="Pseudoternary" stroke="#413ea0" />
+      <Line
+        type="step"
+        dataKey="Pseudoternary"
+        stroke="#413ea0"
+        dot={false}
+        strokeWidth={2}
+      />
     </LineChart>
   );
 };
@@ -36,13 +48,17 @@ const PseudoternaryGraph: React.FC<PseudoternaryGraphProps> = ({
 // Function to generate Pseudoternary graph data from the input string
 const generatePseudoternaryData = (inputData: string) => {
   const graphData: { index: number; Pseudoternary: number }[] = [];
-  const values = inputData.split("").map(Number);
+  let currentLevel = 1; // Start with 1 for the first zero
 
-  values.forEach((value, index) => {
-    graphData.push({
-      index: index,
-      Pseudoternary: value === 0 ? (index % 2 === 0 ? 1 : -1) : 0,
-    });
+  inputData.split("").forEach((bit, index) => {
+    if (bit === "0") {
+      // Alternate between 1 and -1 for each successive '0'
+      graphData.push({ index, Pseudoternary: currentLevel });
+      currentLevel = -currentLevel; // Toggle level
+    } else {
+      // For '1', set to 0 (no line signal)
+      graphData.push({ index, Pseudoternary: 0 });
+    }
   });
 
   return graphData;

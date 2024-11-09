@@ -22,27 +22,39 @@ const NRZIGraph: React.FC<NRZIGraphProps> = ({ inputData }) => {
       height={300}
       data={data}
     >
-      <CartesianGrid strokeDasharray="3 3" />
+      <CartesianGrid strokeDasharray="1 3" />
+      <XAxis
+        dataKey="index"
+        tickCount={data.length}
+        interval={0}
+        tickFormatter={(tick) => inputData[tick]} // Display the bit value at each tick
+      />
       <YAxis domain={[0, 1]} ticks={[0, 1]} />
       <Tooltip />
       <Legend />
-      <Line type="monotone" dataKey="NRZ-I" stroke="#82ca9d" />
+      <Line
+        type="step"
+        dataKey="NRZ-I"
+        stroke="#82ca9d"
+        dot={false}
+        strokeWidth={2}
+      />
     </LineChart>
   );
 };
 
-// Function to generate NRZ-I graph data from the input string
+// Function to generate NRZ-I graph data with uniform distribution
 const generateNRZIData = (inputData: string) => {
   const graphData: { index: number; "NRZ-I": number }[] = [];
   const values = inputData.split("").map(Number);
   let lastValue = 0;
 
   values.forEach((value, index) => {
-    lastValue = value === 1 ? 1 - lastValue : lastValue; // Toggle on 1
-    graphData.push({
-      index: index,
-      "NRZ-I": lastValue,
-    });
+    // Toggle the current level on a 1-bit, retain the level on a 0-bit
+    lastValue = value === 1 ? 1 - lastValue : lastValue;
+
+    // Add one data point per bit, and show the current level for each bit
+    graphData.push({ index: index, "NRZ-I": lastValue });
   });
 
   return graphData;

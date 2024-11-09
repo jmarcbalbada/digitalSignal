@@ -22,25 +22,36 @@ const NRZLGraph: React.FC<NRZLGraphProps> = ({ inputData }) => {
       height={300}
       data={data}
     >
-      <CartesianGrid strokeDasharray="3 3" />
+      <CartesianGrid strokeDasharray="1 3" />
+      <XAxis
+        dataKey="index"
+        tickCount={data.length}
+        interval={0}
+        tickFormatter={(tick) => inputData[tick]} // Show the bit value at each tick (0 or 1)
+      />
       <YAxis domain={[0, 1]} ticks={[0, 1]} />
       <Tooltip />
       <Legend />
-      <Line type="monotone" dataKey="NRZ-L" stroke="#8884d8" />
+      <Line
+        type="step"
+        dataKey="NRZ-L"
+        stroke="#df144a"
+        dot={false}
+        strokeWidth={2}
+      />
     </LineChart>
   );
 };
 
-// Function to generate NRZ-L graph data from the input string
 const generateNRZLData = (inputData: string) => {
   const graphData: { index: number; "NRZ-L": number }[] = [];
-  const values = inputData.split("").map(Number); // Convert string to array of numbers
+  const values = inputData.split("").map(Number);
 
   values.forEach((value, index) => {
-    graphData.push({
-      index: index,
-      "NRZ-L": value,
-    });
+    const signal = value === 1 ? 1 : 0;
+
+    // Only create one data point per bit
+    graphData.push({ index: index, "NRZ-L": signal });
   });
 
   return graphData;
